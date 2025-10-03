@@ -52,6 +52,12 @@
 (defn sorteer-lijst [woorden-en-aantallen]
   (if (empty? woorden-en-aantallen) '()
       (voeg-op-plek (first woorden-en-aantallen) (sorteer-lijst (rest woorden-en-aantallen)))))
+;; print elke regel apart met woord en aantal
+(defn print-lijst [lijst]
+  (when (not (empty? lijst))
+    (let [[woord aantal] (first lijst)]
+      (println woord aantal)
+      (print-lijst (rest lijst))))) ;; recursief :)
 
 ;; hoofdprogramma
 (defn -main [& _]
@@ -59,5 +65,6 @@
         woorden-lijst (woorden inhoud)            ;; maak woordenlijst
         geteld (tel-woorden woorden-lijst)        ;; tel alle woorden
         gesorteerd (sorteer-lijst geteld)]        ;; sorteer van hoog naar laag
-    (println "woordfrequentie gesorteerd van hoog naar laag")
-    (println gesorteerd)))
+    (println "woord  aantal")
+    (println "")
+    (print-lijst gesorteerd)))
