@@ -7,17 +7,18 @@
 |Datum| 03/10/2025|
 |Docent| Dennis Breuker|
 |Course| APP (Algoritmes, Paradigma's en Programmeertalen)|
+|Klas| ITA-CNI-A-s|
 
 
 
 ## Inleiding
 
-Voor de course APP (Algoritmes, Paradigma's en Programmeertalen) ben ik bezig geweest met de paradigma challenge. Ik ben bezig gegaan met de opdracht om het aantal woorden te analyseren in een tekstbestand. Ik zal dat doen met de taal clojure.
+Voor de course APP (Algoritmes, Paradigma's en Programmeertalen) ben ik bezig geweest met de paradigma challenge. Ik ben bezig gegaan met de opdracht om het aantal woorden te analyseren in een tekstbestand. Ik zal dat doen met de taal Clojure.
 
 
 ## Onderzoek
-Ik heb voor deze opdracht gekozen om een tekstanalyseprogramma te maken.
-De programmeertaal die ik heb gebruikt is Clojure. Dit is een moderne, functionele taal die draait op de Java Virtual Machine (JVM). Clojure is ontworpen met eenvoud, data-gericht denken en functionele zuiverheid als uitgangspunt. Hieronder beschrijf ik de belangrijkste functionele concepten en hoe die in Clojure werken en in mijn project zijn toegepast.
+Ik heb voor de opdracht gekozen om een tekstanalyseprogramma te maken.
+De programmeertaal die ik heb gebruikt is Clojure. Ik heb deze niet gekozen d.m.v onderzoek. Mij interesserde het me niet echt welke taal ik zou gebruiken, dus ik besloot aan AI te vragen welke taal het beste past bij de opdracht.(bron in bronnenlijst). Het antwoord dat eruit kwam was Clojure, omdat het de beste keuze is als je wilt focusen op recursie en higher order functies. Dat leek mij een goede keuze en is hem geworden. Clojure is een moderne, functionele taal die draait op de Java Virtual Machine (JVM).
 
 ### Basisconcepten van Clojure
 
@@ -126,9 +127,9 @@ Je kunt:
 * een functie meegeven als argument aan een andere functie
 * een functie teruggeven als resultaat van een andere functie
 
-Dit maakt je code flexibeler en krachtiger, omdat je functies kunt combineren en dynamisch kunt gebruiken.
+Dit maakt je code flexibeler, omdat je functies kunt combineren en dynamisch kunt gebruiken.
 
-Voorbeeld – een functie opslaan en aanroepen:
+Voorbeeld (een functie opslaan en aanroepen):
 
 ```clojure
 (defn keer-twee [x]
@@ -188,7 +189,7 @@ Recursie betekent dat een functie zichzelf opnieuw aanroept om een probleem stap
 
 Bij recursie geef je steeds een “kleinere” versie van het probleem door aan dezelfde functie, totdat je een base case bereikt. Die base case zorgt ervoor dat de recursie stopt en je geen oneindige herhaling krijgt.
 
-Een eenvoudig voorbeeld:
+Een eenvoudig voorbeeld in clojure:
 
 ```clojure
 (defn aftellen [n]
@@ -243,7 +244,7 @@ Lazy evaluation is standaard ingebouwd in veel functies in Clojure zoals `map`, 
 
 #### Pattern Matching
 
-Pattern matching is een manier om te controleren op verschillende vormen van data. Clojure heeft geen echte pattern matching, maar gebruikt iets wat daar sterk op lijkt: destructuring. Daarmee kun je elementen uit een lijst, vector of map direct “uitpakken” zonder steeds first, second of get te gebruiken.
+Pattern matching is een manier om te controleren op verschillende vormen van data. Clojure heeft geen echte pattern matching, maar gebruikt iets wat daar sterk op lijkt: `destructuring`. Daarmee kun je elementen uit een lijst, vector of map direct “uitpakken” zonder steeds first, second of get te gebruiken.
 
 
 ``` clojure
@@ -269,7 +270,7 @@ if (vorm instanceof Cirkel c) {
 
 Hier controleer je eerst het type en pak je daarna de bijbehorende data eruit.
 
-Het verschil met echte pattern matching is dat dat proces daar automatisch gecombineerd wordt: het herkent vorm + inhoud tegelijk en geeft meteen namen aan onderdelen zonder aparte if-checks.
+Het verschil met echte pattern matching is dat dat proces daar automatisch gecombineerd wordt. Het herkent vorm + inhoud tegelijk en geeft meteen namen aan onderdelen zonder aparte if-checks.
 
 ## Opdracht
 
@@ -306,7 +307,7 @@ Bijvoorbeeld in `voeg-toe-of-update`: in plaats van een bestaand (woord, aantal)
 (cons [nieuw-woord nieuw-aantal] (rest woorden-en-aantallen))
 ```
 
-Ook bij het tellen van woorden (`tel-woorden`) wordt elke stap uitgevoerd op een nieuwe versie van de lijst. Het was wel wennen om `cons` te gebruiken als ik data wil toevoegen aan een lijst. 
+Ook bij het tellen van woorden (`tel-woorden`) wordt elke stap uitgevoerd op een nieuwe versie van de lijst. Het was wel wennen om `cons` te gebruiken als ik data wil toevoegen aan een lijst en zou het steeds vergeten als ik data wou toevoegen. 
 
 
 #### Recursie
@@ -318,7 +319,7 @@ Voorbeelden:
 * `voeg-op-plek` – zoekt recursief naar de juiste plek om een element in te voegen.
 * `print-lijst` – print recursief elk element van de lijst.
 
-Ik merkte dat recursie in combinatie met linked lists heel natuurlijk aanvoelt. Omdat een lijst uit een “kop” en “rest” bestaat, is het logisch om bij elke stap alleen naar de rest te kijken en de functie opnieuw aan te roepen. Het was wel nog steeds lastig in het begin en ook bij het implementeren van het sorteeralgoritme. Ik moest eerst op papier schrijven en tekenen hoe ik van plan was het überhaupt uit te programmeren. Vooral bij functies zoals voeg-op-plek moest ik goed nadenken over hoe de recursie precies zou verlopen. wanneer moet een element ingevoegd worden, wat gebeurt er als de lijst leeg is en hoe geef ik de rest van de lijst correct mee?
+Ik merkte dat recursie in combinatie met linked lists heel natuurlijk aanvoelt. Omdat een lijst uit een “kop” en “rest” bestaat, is het logisch om bij elke stap alleen naar de rest te kijken en de functie opnieuw aan te roepen. Het was wel nog steeds lastig in het begin en ook bij het implementeren van het sorteeralgoritme. Ik moest eerst op papier schrijven en tekenen hoe ik van plan was het uberhaupt uit te programmeren. Vooral bij functies zoals voeg-op-plek moest ik goed nadenken over hoe de recursie precies zou verlopen. wanneer moet een element ingevoegd worden, wat gebeurt er als de lijst leeg is en hoe geef ik de rest van de lijst correct mee?
 
 
 #### Linked Lists en datarepresentatie
@@ -333,7 +334,7 @@ Bijvoorbeeld:
 (rest '(1 2 3))  ;; (2 3)
 ```
 
-Ook `cons` past goed bij deze structuur omdat het een element vooraan toevoegt, wat bij linked lists heel goedkoop is.
+Ook `cons` past goed bij deze structuur omdat het een element vooraan toevoegt, wat bij linked lists heel fijn is.
 
 
 #### Higher-order functions
@@ -383,7 +384,8 @@ Ten slotte schreef ik `print-lijst` om de resultaten één voor één uit te pri
 
 
 
-Wat ik vooral lastig vond aan functioneel programmeren was dat het anders was zoals bij Java en JS. het leren van die talen ging makkelijker, omdat sommige concepten op elkaar leken. Hier moest ik anders over nadenken en vooral met het retourneren van waarden en het maken van loops. Het maakt de code wel kleiner en overzichtelijker nu ik begrijp wat alle dingen inhouden, maar het is lastiger om te leren dan talen zoals JS.
+Wat ik vooral lastig vond aan functioneel programmeren was dat het anders was zoals bij Java en JS. het leren van die talen ging makkelijker, omdat sommige concepten op elkaar leken. Hier moest ik anders over nadenken en vooral met het retourneren van waarden en het maken van loops. De code is uiteindelijk wel overzichtelijker geworden nu ik begrijp wat alle onderdelen betekenen, maar het aanleren van deze manier van programmeren vond ik wel moeilijker dan bij talen zoals JavaScript.
+
 
 Het meest uitdagende onderdeel was het schrijven van de functies voor het tellen en sorteren van woorden zonder ingebouwde functies zoals `assoc` of `sort`. Ik moest alles zelf bouwen, zoals een functie die een waarde toevoegt aan een lijst of een functie die de juiste plek voor een element zoekt bij het sorteren.
 
@@ -392,7 +394,9 @@ Het meest uitdagende onderdeel was het schrijven van de functies voor het tellen
 ## Conclusie
 In deze opdracht heb ik een tekstanalyseprogramma gebouwd dat woorden uit een tekstbestand telt, hun frequentie bijhoudt, de resultaten sorteert en ze uiteindelijk gesorteerd uitprint. Daarbij heb ik alle belangrijke functionele concepten toegepast: zuivere functies, immutability, recursie en higher-order functions.
 
-Het was in het begin lastig om op een functionele manier te denken, vooral omdat ik gewend was aan imperatieve talen zoals Java en JavaScript. Het werken met recursie in plaats van loops en het steeds opnieuw creëren van nieuwe lijsten in plaats van bestaande data te veranderen, was een grote omschakeling. Toch heeft dit project me geholpen om die manier van denken te begrijpen.
+Het was in het begin lastig om op een functionele manier te denken, vooral omdat ik gewend was aan talen zoals Java en JavaScript. Het werken met recursie in plaats van loops en het steeds opnieuw creëren van nieuwe lijsten in plaats van bestaande data te veranderen, was een grote verandering. Toch heeft dit project me geholpen om die manier van denken te begrijpen. Recursief programmeren voelt nu veel natuurlijker aan, en ik merk dat ik beter kan nadenken over de logica van mijn programma voordat ik begin met coderen. Het vooraf uitdenken van algoritmes in mijn hoofd helpt me nu veel meer bij het schrijven van duidelijke en werkende oplossingen.
+
+
 
 ## Bronnen
 
@@ -404,7 +408,13 @@ Het was in het begin lastig om op een functionele manier te denken, vooral omdat
 6. AIM CNI. (z.j.). *Lesprogramma – Week 2, les 1*. Geraadpleegd op 25 september 2025, van [https://aim-cni.github.io/app/docs/Week%202/Les%201/Lesprogramma](https://aim-cni.github.io/app/docs/Week%202/Les%201/Lesprogramma)
 7. Wikipedia. (z.j.). *Insertion sort*. Geraadpleegd op 1 oktober 2025, van [https://en.wikipedia.org/wiki/Insertion_sort](https://en.wikipedia.org/wiki/Insertion_sort)
 8. AIM CNI. (z.j.). *Lesprogramma – Week 2, les 3*. Geraadpleegd op 25 september 2025, van [https://aim-cni.github.io/app/docs/Week%202/Les%203/Lesprogramma](https://aim-cni.github.io/app/docs/Week%202/Les%203/Lesprogramma)
-9. AIM CNI. (z.j.). *Lesprogramma – Week 1, les 3*. Geraadpleegd op 25 september 2025, van [https://aim-cni.github.io/app/docs/Week%201/Les%203/Lesprogramma](https://aim-cni.github.io/app/docs/Week%201/Les%203/Lesprogramma)
+
+9. AIM CNI. (z.j.). *Lesprogramma – Week 1, les 3*. Geraadpleegd op 25 september 2025, van [https://aim-cni.github.io/app/docs/Week%201/Les%203/Lesprogramma](https://aim-cni.github.io/app/docs/Week%201/Les%203/Lesprogramma) 
+
+10.OpenAI. (2025, 1 september). *ChatGPT. Antwoord op vrag welke taal beste is voor de tekstanalyse opdracht*. ChatGPT. https://chatgpt.com/share/68dfca78-c66c-800e-b9b7-941b0a178368
+
+11.Moldstud. (z.j.). *What is Clojure and why is it popular among developers*. Geraadpleegd op 9 september 2025, van [https://moldstud.com/articles/p-what-is-clojure-and-why-is-it-popular-among-developers](https://moldstud.com/articles/p-what-is-clojure-and-why-is-it-popular-among-developers)
+12.The Knowledge Academy. (z.j.). *What is Clojure?*. Geraadpleegd op 9 september 2025, van [https://www.theknowledgeacademy.com/blog/what-is-clojure/](https://www.theknowledgeacademy.com/blog/what-is-clojure/)
 
 
 ### AI

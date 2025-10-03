@@ -1,6 +1,6 @@
 (ns seradrev.tekstanalyse
   (:gen-class)
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str])) ;; import str library van Clojuree
 
 ;; maakt tekst schoon en splitst in losse woorden
 (defn woorden [text]
@@ -56,7 +56,7 @@
 
 (defn doe-iets-met-lijst [functie lijst]
   (run! functie lijst ))
-;; hoofdprogramma
+;; main :)
 (defn -main [& _]
   (let [inhoud (slurp "resources/lol.txt")         ;; lees tekstbestand
         woorden-lijst (woorden inhoud)            ;; maak woordenlijst

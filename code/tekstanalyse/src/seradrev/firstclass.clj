@@ -11,6 +11,6 @@
 
 
 (defn -main [& _]
-  ;; voorbeeld 1: functie doorgeven
+  ;; voorbeeld: functie doorgeven
   (println (firstclass kwadraat 5))    ;; => 25
   )
