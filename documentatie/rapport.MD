@@ -16,8 +16,14 @@ Voor de course APP (Algoritmes, Paradigma's en Programmeertalen) ben ik bezig ge
 
 
 ## Onderzoek
-Ik besloot om de challenge "tekstanalyse" te kiezen omdat het me interessant leek om met recursieve functies te werken. 
+Ik heb voor deze opdracht gekozen om een tekstanalyseprogramma te maken, omdat dit een uitdaging is waarbij je veel belangrijke functionele concepten kunt toepassen. Vooral het werken met recursieve functies en het opbouwen van logica zonder loops leek me interessant.
 
+De programmeertaal die ik heb gebruikt is Clojure. Dit is een moderne, functionele taal die draait op de Java Virtual Machine (JVM). Clojure is ontworpen met eenvoud, data-gericht denken en functionele zuiverheid als uitgangspunt. Hieronder beschrijf ik de belangrijkste functionele concepten en hoe die in Clojure werken en in mijn project zijn toegepast.
+
+### Zuiverheid (pure functions)
+In het tweede jaar van mijn studie heb ik geleerd wat pure functies zijn. Een pure functie is een functie die altijd dezelfde output geeft bij dezelfde input en geen bijwerkingen heeft. In Clojure is dit een centraal principe: functies veranderen geen globale variabelen, schrijven niets naar files en werken niet direct met externe toestand.
+
+In mijn code zijn functies zoals `woorden`, `zoek-woord` en `voeg-toe-of-update`  zuiver. Ze nemen input (bijv. een lijst of een woord) en geven daar een nieuw resultaat voor terug, zonder iets anders te beïnvloeden. Dit zorgt ervoor dat de logica betrouwbaar is en makkelijk te testen. [Hier](../code/tekstanalyse/src/seradrev/pure.clj) is een bestand war ik mee ging oefenen om te oefenen met pure functies in clojure. Ik maakte een plus functie zoals we leerden in vorig jaar. Hier kon ik oefenen met de prefix notatie zoals we die leerden in de APP lessen. 
 
 ### Algoritmes:
  - Recursie
