@@ -25,6 +25,14 @@ In het tweede jaar van mijn studie heb ik geleerd wat pure functies zijn. Een pu
 
 In mijn code zijn functies zoals `woorden`, `zoek-woord` en `voeg-toe-of-update`  zuiver. Ze nemen input (bijv. een lijst of een woord) en geven daar een nieuw resultaat voor terug, zonder iets anders te beïnvloeden. Dit zorgt ervoor dat de logica betrouwbaar is en makkelijk te testen. [Hier](../code/tekstanalyse/src/seradrev/pure.clj) is een bestand war ik mee ging oefenen om te oefenen met pure functies in clojure. Ik maakte een plus functie zoals we leerden in vorig jaar. Hier kon ik oefenen met de prefix notatie zoals we die leerden in de APP lessen. 
 
+### First-Class Functions
+First class functions betekent dat functies worden behandeld als gewonen waarden, zoals ints, strings en lijsten. Je kunt er mee doen wat je met andere waarden ook doet. Je kan:
+- functie opslaan in een variabele
+- functie als argument meegeven aan andere functie
+- retourneren als resultaat van andere functie
+
+In Clojure zijn functies first-class citizens. Dat betekent dat functies net als waarden behandeld worden: je kunt ze meegeven als argument, teruggeven als resultaat of opslaan in een datastructuur. Om er mee te oefenen heb ik een codebestand gemaakt waar ik een functie meegeef als parameter. Dat is [hier](./../code/tekstanalyse/src/seradrev/firstclass.clj) te vinden.
+
 ### Algoritmes:
  - Recursie
  - Higher-Order-Functions
