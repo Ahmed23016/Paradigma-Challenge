@@ -52,13 +52,10 @@
 (defn sorteer-lijst [woorden-en-aantallen]
   (if (empty? woorden-en-aantallen) '()
       (voeg-op-plek (first woorden-en-aantallen) (sorteer-lijst (rest woorden-en-aantallen)))))
-;; print elke regel apart met woord en aantal
-(defn print-lijst [lijst]
-  (when (not (empty? lijst))
-    (let [[woord aantal] (first lijst)]
-      (println woord aantal)
-      (print-lijst (rest lijst))))) ;; recursief :)
 
+
+(defn doe-iets-met-lijst [functie lijst]
+  (run! functie lijst ))
 ;; hoofdprogramma
 (defn -main [& _]
   (let [inhoud (slurp "resources/lol.txt")         ;; lees tekstbestand
@@ -67,4 +64,4 @@
         gesorteerd (sorteer-lijst geteld)]        ;; sorteer van hoog naar laag
     (println "woord  aantal")
     (println "")
-    (print-lijst gesorteerd)))
+    (doe-iets-met-lijst println gesorteerd)))
